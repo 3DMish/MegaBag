@@ -35,10 +35,10 @@ import m7a_modifiers, m7a_text_editor, m7a_view3d_panels, m7a_navigate, m7a_quic
 import m7a_view3d_header, m7a_view3d_tool_header, m7a_dope_sheet;
 
 bl_info = {
-    "name":     "MegaBag v0.1.Alpha",
+    "name":     "MegaBag v0.1.0-Alpha",
     "category": "3DMish",
     "author":   "3DMish (Mish7913)",
-    "version":  (0, 1, "0-Alpha-2023.01.01-14.42"),
+    "version":  (0, 1, "0-Alpha-2023.01.31-14.42"),
     "blender":  (3, 3, 0),
     "wiki_url": "https://3dmish.blogspot.com/p/megabag-en.html",
     "warning":  "It's an alpha version.",
@@ -76,19 +76,20 @@ def register():
                 m7a_modifiers.register();
               
         if (hasattr(bpy_preferences("addons", "megabag").m7a_megabag_props, "dope_sheet_update")):
-            m7a_dope_sheet.register();
+            if (bpy_preferences("addons", "megabag").m7a_megabag_props.dope_sheet_update):
+                m7a_dope_sheet.register();
     
     m7a_navigate.register();
 
 def unregister():
-    m7a_navigate.unregister();    m7a_view3d_header.unregister(); m7a_view3d_panels.unregister();
-    m7a_text_editor.unregister(); m7a_modifiers.unregister();
+    m7a_navigate.unregister();
+    m7a_view3d_header.unregister();
+    m7a_view3d_panels.unregister();
+    m7a_text_editor.unregister();
+    m7a_modifiers.unregister();
     if (ver_more(2,80,0)): m7a_view3d_tool_header.unregister();
     m7a_quick_pack.unregister();
-    
-    if (hasattr(bpy_preferences("addons", "megabag").m7a_megabag_props, "dope_sheet_update")):
-        m7a_dope_sheet.unregister();
-    
+    m7a_dope_sheet.unregister();
     m7a_props.unregister();
     
 if __name__ == "__main__": register();
