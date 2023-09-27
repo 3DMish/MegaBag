@@ -1,8 +1,9 @@
 # MegaBag - Addon for Blender
 MegaBag - it's a mega pack of different stuff for Blender
 
+This repository is a save mirror from [Blender Projects](https://projects.blender.org/3DMish/MegaBag).
+
 ## Links
-- Web-site: https://3dmish.blogspot.com/2023/01/megabag-en.html
 - Blender Projects: https://projects.blender.org/3DMish/MegaBag
 
 ## Download
